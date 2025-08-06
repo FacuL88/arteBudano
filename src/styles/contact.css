@@ -1,0 +1,32 @@
+.container__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 80px;
+    height: 100vh;
+}
+
+.container__contact h2 {
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+.ul__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    margin: 2em;
+}
+
+.li__contact {
+    display: flex;
+    align-items:center;
+    margin: 5px;
+}
+
+.li__contact img {
+    width: 20px;
+    margin: 7px;
+}

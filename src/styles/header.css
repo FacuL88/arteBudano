@@ -1,0 +1,63 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    position: fixed;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #c4b66a;
+    border-bottom: 1px solid black;
+    transition: height 0.3s ease;
+    z-index: 1000;
+    height: 50px;
+    opacity: 0.7;
+}
+
+/* Cuando el header está oculto */
+.header.closed {
+    height: 0;
+}
+
+/* Cuando el header está visible */
+.header.open {
+    height: 110px; /* Ajustá según contenido */
+}
+
+/* Navegación dentro del header */
+.nav {
+    padding: 1rem;
+}
+
+/* Botón menú */
+.menu-toggle {
+    position: fixed;
+    top: 12px;
+    left: 10px;
+    background: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    z-index: 1100;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.ul {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 1em;
+}
+
+.li {
+    margin: 0px 10px;
+    list-style-type: none;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+
+.li:hover {
+    color: rgb(110, 110, 110);
+}
