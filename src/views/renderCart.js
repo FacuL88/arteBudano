@@ -1,7 +1,9 @@
 import { cart } from './cart.js';
 
 export function renderCart() {
+    console.log('renderCart called');
     const main = document.getElementById('mainId');
+    console.log('main element:', main);
 
     main.innerHTML = `
         <div class='container' style='padding: calc(var(--space-xl) + 80px) var(--space-md) var(--space-xl);'>
@@ -25,7 +27,7 @@ export function renderCart() {
                         </div>
                         <div class='cart-actions'>
                             <button class='btn btn-secondary' onclick="clearCart()">Vaciar Carrito</button>
-                            <button class='btn' onclick="proceedToCheckout()">Proceder al Pago</button>
+                            <button class='btn' onclick="completePurchase()">Comprar</button>
                         </div>
                     </div>
                 ` : ''}
@@ -36,6 +38,79 @@ export function renderCart() {
     if (cart.items.length > 0) {
         setupCartEventListeners();
     }
+}
+
+function generatePurchaseToken() {
+    const timestamp = Date.now();
+    const random = Math.random().toString(36).substring(2, 15);
+    return `TKN-${timestamp}-${random}`.toUpperCase();
+}
+
+function completePurchase() {
+    const purchaseToken = generatePurchaseToken();
+    const purchaseData = {
+        token: purchaseToken,
+        items: cart.items.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+        })),
+        total: cart.getTotal(),
+        date: new Date().toISOString()
+    };
+    
+    // Guardar en localStorage como registro de compra
+    const purchases = JSON.parse(localStorage.getItem('artGalleryPurchases') || '[]');
+    purchases.push(purchaseData);
+    localStorage.setItem('artGalleryPurchases', JSON.stringify(purchases));
+    
+    // Mostrar mensaje de éxito
+    const main = document.getElementById('mainId');
+    main.innerHTML = `
+        <div class='container' style='padding: calc(var(--space-xl) + 80px) var(--space-md) var(--space-xl);'>
+            <div class='purchase-success'>
+                <div class='success-icon'>¡</div>
+                <h1>¡Compra Exitosa!</h1>
+                <p class='success-message'>Gracias por tu compra. Tu orden ha sido procesada exitosamente.</p>
+                
+                <div class='purchase-details'>
+                    <h3>Detalles de la Compra</h3>
+                    <div class='detail-item'>
+                        <strong>Token de Compra:</strong>
+                        <span class='purchase-token'>${purchaseToken}</span>
+                    </div>
+                    <div class='detail-item'>
+                        <strong>Total Pagado:</strong>
+                        <span>${cart.formatPrice(cart.getTotal())}</span>
+                    </div>
+                    <div class='detail-item'>
+                        <strong>Fecha:</strong>
+                        <span>${new Date().toLocaleDateString('es-AR', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })}</span>
+                    </div>
+                    <div class='detail-item'>
+                        <strong>Obras Adquiridas:</strong>
+                        <span>${cart.items.length} obra(s)</span>
+                    </div>
+                </div>
+                
+                <div class='purchase-actions'>
+                    <button class='btn' onclick="window.location.href='#gallery'">Seguir Comprando</button>
+                    <button class='btn btn-secondary' onclick="window.location.href='#home'">Volver al Inicio</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Vaciar el carrito después de la compra
+    cart.clearCart();
+    cart.updateCartUI();
 }
 
 function renderCartItems() {

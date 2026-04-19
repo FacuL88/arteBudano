@@ -1,59 +1,51 @@
 # Galería de Arte - Gonzalo Budano
 
-Una galería de arte online con sistema de e-commerce integrado con Mercado Pago.
+Una galería de arte online con sistema de e-commerce para la compra de obras de arte.
 
 ## Características
 
 - **Catálogo de obras**: Galería interactiva con detalles de cada pintura
 - **Carrito de compras**: Sistema completo de gestión de carrito con persistencia local
-- **Pasarela de pago**: Integración con Mercado Pago para procesar pagos seguros
 - **Diseño elegante**: Estética sofisticada apropiada para una galería de arte
 - **Responsive**: Diseño adaptable a todos los dispositivos
 
 ## Tecnologías Utilizadas
 
 - **Frontend**: Vanilla JavaScript, Vite, CSS3
-- **Backend**: Node.js, Express
-- **Pagos**: Mercado Pago API
-- **Estilos**: CSS Grid, Flexbox, Animaciones CSS
-- **Fuentes**: Google Fonts (Playfair Display, Montserrat)
+- **Despliegue**: GitHub Pages
+- **Almacenamiento**: LocalStorage para persistencia
 
 ## Instalación
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone <repository-url>
-   cd arte
-   ```
+### Prerrequisitos
 
-2. **Instalar dependencias**
-   ```bash
-   npm install
-   ```
+- Node.js (v14 o superior)
+- npm o yarn
 
-3. **Configurar Mercado Pago**
-   - Abre el archivo `server.js`
-   - Reemplaza `'TEST_ACCESS_TOKEN'` con tu token de acceso de Mercado Pago
-   - Para desarrollo, puedes usar un token de prueba de [Mercado Pago Developers](https://www.mercadopago.com.ar/developers)
+### Pasos
 
-## Ejecución
-
-### Modo Desarrollo
+1. Clonar el repositorio:
 ```bash
-# Iniciar el frontend
-npm run dev
-
-# Iniciar el backend (en otra terminal)
-npm run server
+git clone <repository-url>
+cd arte
 ```
 
-### Modo Producción
+2. Instalar dependencias:
 ```bash
-# Construir el frontend
-npm run build
+npm install
+```
 
-# Iniciar el servidor de producción
-npm run server
+3. Ejecutar el proyecto:
+
+**Para desarrollo**:
+```bash
+npm run dev
+```
+
+**Para producción**:
+```bash
+npm run build
+npm run deploy
 ```
 
 ## Estructura del Proyecto
@@ -61,78 +53,45 @@ npm run server
 ```
 arte/
 src/
-  views/           # Componentes y vistas
-    provider.js    # Datos de las obras
-    cart.js        # Lógica del carrito
-    render*.js     # Renderizado de vistas
-  styles/          # Archivos CSS
-    *.css          # Estilos por componente
+  views/           # Componentes de la aplicación
+  styles/          # Estilos CSS
   images/          # Imágenes de las obras
-server.js          # Backend y API de Mercado Pago
+  app.css          # Estilos principales
+  main.js          # Punto de entrada
+index.html         # Plantilla HTML
+package.json       # Dependencias y scripts
 ```
 
-## Configuración de Mercado Pago
+## Uso
 
-1. **Crear cuenta de desarrollador** en [Mercado Pago Developers](https://www.mercadopago.com.ar/developers)
-
-2. **Obtener Access Token**:
-   - Ve a la sección "Credenciales"
-   - Copia tu Access Token de prueba o producción
-
-3. **Configurar URLs de retorno**:
-   - Success: `http://localhost:3000/payment-success`
-   - Failure: `http://localhost:3000/payment-failure`
-   - Pending: `http://localhost:3000/payment-pending`
-
-## Funcionalidades
-
-### Galería de Arte
-- Vista grid de todas las obras
-- Filtros por técnica, año, tamaño
-- Vista detallada de cada obra
-- Información completa: precio, medidas, técnica, año
-
-### Carrito de Compras
-- Agregar/eliminar obras
-- Modificar cantidades
-- Cálculo automático de totales
-- Persistencia en localStorage
+### Navegación
+- **Inicio**: Slider con obras destacadas y frases inspiradoras
+- **Galería**: Catálogo completo de obras
+- **Bio**: Información sobre el artista
+- **Contacto**: Datos de contacto y redes sociales
+- **Carrito**: Gestión de compras
 
 ### Proceso de Compra
-- Formulario de datos del cliente
-- Resumen del pedido
-- Redirección a Mercado Pago
-- Páginas de confirmación de pago
 
-## Personalización
+1. **Explorar Galería**: Navegar por las obras disponibles
+2. **Ver Detalles**: Hacer clic en "Ver obra" para más información
+3. **Agregar al Carrito**: Seleccionar obras deseadas
+4. **Comprar**: Generar token de compra y confirmación
+5. **Confirmación**: Recibir token único y detalles de la compra
 
-### Agregar Nuevas Obras
-Edita `src/views/provider.js`:
+## Funcionalidades del Carrito
 
-```javascript
-{
-    id: 15,
-    name: 'Nueva Obra',
-    medidas: '60X60cm',
-    tecnica: 'óleo',
-    año: '2024',
-    img: image_15,
-    price: 300000,
-    stock: 1,
-    description: 'Descripción de la obra...'
-}
+- Agregar/eliminar obras
+- Modificar cantidades
+- Calcular total automáticamente
+- Persistencia en localStorage
+- Generación de tokens de compra únicos
+
+## Tokens de Compra
+
+Cada compra genera un token único con el formato:
 ```
-
-### Modificar Estilos
-- Colores principales: Edita variables en `src/app.css`
-- Fuentes: Modifica imports de Google Fonts
-- Layout: Ajusta archivos CSS específicos en `src/styles/`
-
-## Variables de Ambiente
-
-```bash
-# Opcional: para producción
-PORT=3000
+TKN-1234567890-ABC123
 MERCADO_PAGO_ACCESS_TOKEN=your_token_here
 NODE_ENV=production
 ```

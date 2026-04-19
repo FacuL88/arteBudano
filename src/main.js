@@ -27,6 +27,7 @@ document.addEventListener('click', (e) => {
   if (e.target.matches('.nav-link')) {
     e.preventDefault();
     const section = e.target.dataset.section;
+    console.log('Navigation clicked:', section);
     const main = document.getElementById('mainId');
     const navList = document.getElementById('navList');
     
@@ -46,7 +47,9 @@ document.addEventListener('click', (e) => {
         renderContact();
         break;
       case 'cart':
+        console.log('About to call renderCart');
         renderCart();
+        console.log('renderCart called');
         break;
     }
 

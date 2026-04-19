@@ -7,16 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "server": "node server.js"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5",
-    "mercadopago": "^1.5.1"
-  },
-  "devDependencies": {
     "gh-pages": "^6.3.0",
     "vite": "^6.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5"
   }
 }
