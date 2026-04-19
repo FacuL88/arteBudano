@@ -1,24 +1,33 @@
 export function renderHeader() {
     const header = document.getElementById('headerId');
-    const nav = document.createElement('nav');
-    nav.classList.add('nav');
-
-    nav.innerHTML = `
-        <ul class='ul'>
-            <li class='li' data-section='home'>
-                home
-            </li>
-            <li class='li' data-section='gallery'>
-                gallery
-            </li>
-            <li class='li' data-section='bio'>
-                bio
-            </li>
-            <li class='li' data-section='contact'>
-                contact
-            </li>
-        </ul>
+    
+    header.innerHTML = `
+        <nav class='nav'>
+            <div class='logo'>Gonzalo Budano</div>
+            
+            <button id='menuToggle' class='menu-toggle'>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class='nav-list' id='navList'>
+                <li><a href='#' class='nav-link' data-section='home'>Inicio</a></li>
+                <li><a href='#' class='nav-link' data-section='gallery'>Galería</a></li>
+                <li><a href='#' class='nav-link' data-section='bio'>Bio</a></li>
+                <li><a href='#' class='nav-link' data-section='contact'>Contacto</a></li>
+                <li>
+                    <a href='#' class='nav-link' data-section='cart'>
+                        <div class='cart-icon'>
+                            <span>Carrito</span>
+                            <span class='cart-count' id='cart-count'>0</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     `;
-
-    header.appendChild(nav);
+    
+    // Inicializar header como visible
+    header.classList.add('open');
 };

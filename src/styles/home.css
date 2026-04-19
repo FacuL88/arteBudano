@@ -1,18 +1,220 @@
-.slider__principal {
-    height: 100vh;
+/* Hero Section */
+.hero-section {
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    padding: var(--space-xl) var(--space-md);
+    background: var(--background-secondary);
 }
 
-.slider__img img {
-    width: 100%;
-    height: 100vh;
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
 }
 
-.btnSlider {
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-medium);
+    margin: 0;
+    font-style: italic;
+}
+
+.hero-quote {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    font-style: italic;
+    padding: var(--space-md);
+    border-left: 3px solid var(--accent);
+    margin-top: var(--space-md);
+    transition: opacity 0.3s ease;
+    line-height: 1.6;
+}
+
+/* Slider */
+.hero-slider {
+    position: relative;
+    height: 500px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.slider-container {
+    position: relative;
+    height: 100%;
+}
+
+.slider-img {
     width: 100%;
-    background-color: black;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.slider-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     color: white;
-    height: 35px;
-    position: fixed;
-    bottom: 0px;
+    padding: var(--space-lg);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.slider-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 var(--space-xs) 0;
+}
+
+.slider-info p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.875rem;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: var(--space-md);
+    right: var(--space-md);
+    display: flex;
+    gap: var(--space-xs);
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    background: var(--background);
+}
+
+.cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.cta-section p {
+    font-size: 1.125rem;
+    color: var(--text-medium);
+    max-width: 600px;
+    margin: 0 auto var(--space-lg) auto;
+    line-height: 1.6;
+}
+
+.btn-hero {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 1rem;
+    background: var(--accent);
+    color: var(--background);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.btn-hero:hover {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .hero-slider {
+        height: 400px;
+        order: -1;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-slider {
+        height: 300px;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+    
+    .slider-info {
+        padding: var(--space-md);
+    }
+    
+    .slider-info h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: var(--space-md);
+        gap: var(--space-lg);
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-slider {
+        height: 250px;
+    }
+    
+    .cta-section {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .btn-hero {
+        width: 100%;
+        max-width: 300px;
+    }
 }

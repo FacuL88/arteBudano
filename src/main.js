@@ -3,41 +3,33 @@ import { renderHeader } from './views/renderHeader';
 import { renderHome } from './views/renderHome';
 import { renderGallery } from './views/renderGallery';
 import { renderBio } from './views/renderBio';
-import { renderContact } from './views/renderContact'
+import { renderContact } from './views/renderContact';
+import { renderCart } from './views/renderCart';
+import { cart } from './views/cart';
 
 document.querySelector('#app').innerHTML = `
-  <div class='container'>
-    <button id='menuToggle' class='menu-toggle'>☰</button>
-    <header id='headerId' class='header'>
-
-    </header>
-    <main id='mainId' class='main'>
-
-    </main>
-  </div>
+  <header id='headerId' class='header'></header>
+  <main id='mainId' class='main'></main>
 `;
 
 renderHeader();
 renderHome();
+cart.updateCartUI();
 
-document.getElementById('menuToggle').addEventListener('click', () => {
-  const header = document.getElementById('headerId');
-  const isOpen = header.classList.contains('open');
-
-  if (isOpen) {
-    header.classList.remove('open');
-    header.classList.add('closed');
-  } else {
-    header.classList.add('open');
-    header.classList.remove('closed');
-  }
-});
-
-// ✅ Manejo del clic en los ítems de navegación
+// Menu toggle para mobile
 document.addEventListener('click', (e) => {
-  if (e.target.matches('.li')) {
+  if (e.target.matches('#menuToggle')) {
+    const navList = document.getElementById('navList');
+    navList.classList.toggle('active');
+  }
+  
+  // Navegación principal
+  if (e.target.matches('.nav-link')) {
+    e.preventDefault();
     const section = e.target.dataset.section;
     const main = document.getElementById('mainId');
+    const navList = document.getElementById('navList');
+    
     main.innerHTML = '';
 
     switch (section) {
@@ -53,11 +45,12 @@ document.addEventListener('click', (e) => {
       case 'contact':
         renderContact();
         break;
+      case 'cart':
+        renderCart();
+        break;
     }
 
-    // ✅ Cerrar el menú después de seleccionar una sección
-    const header = document.getElementById('headerId');
-    header.classList.remove('open');
-    header.classList.add('closed');
+    // Cerrar menú mobile si está abierto
+    navList.classList.remove('active');
   }
 });

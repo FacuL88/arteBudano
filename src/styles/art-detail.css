@@ -1,0 +1,234 @@
+.container__detail {
+    display: flex;
+    flex-direction: column;
+    animation: appear 2s both;
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn-back {
+    align-self: flex-start;
+    padding: 0.8em 1.5em;
+    background: #8b7355;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 2em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #6d5a44;
+}
+
+.detail__content {
+    display: flex;
+    gap: 3em;
+    margin-bottom: 3em;
+    background: white;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail__image {
+    flex: 1.2;
+}
+
+.detail__image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.detail__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.detail__info h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.detail__specs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.spec-value {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.spec-value.price {
+    font-size: 1.3em;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.spec-value.available {
+    color: #27ae60;
+    font-weight: 600;
+}
+
+.spec-value.sold {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.detail__description {
+    color: #555;
+    line-height: 1.6;
+}
+
+.detail__description h3 {
+    color: #2c3e50;
+    margin-bottom: 0.8em;
+}
+
+.detail__actions {
+    margin-top: 1em;
+}
+
+.btn-add-cart {
+    width: 100%;
+    padding: 1.2em;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+    background: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-sold {
+    width: 100%;
+    padding: 1.2em;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.detail__related {
+    background: white;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail__related h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.related__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
+}
+
+.related-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.related-item:hover {
+    transform: translateY(-5px);
+}
+
+.related-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.8em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.related-item h4 {
+    color: #2c3e50;
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+.related-item p {
+    color: #27ae60;
+    font-weight: bold;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .container__detail {
+        padding: 1em;
+    }
+    
+    .detail__content {
+        flex-direction: column;
+        gap: 2em;
+        padding: 1.5em;
+    }
+    
+    .detail__info h1 {
+        font-size: 2em;
+    }
+    
+    .related__gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .detail__info h1 {
+        font-size: 1.5em;
+    }
+    
+    .spec-item {
+        flex-direction: column;
+        gap: 0.3em;
+    }
+    
+    .spec-value {
+        text-align: right;
+    }
+}
