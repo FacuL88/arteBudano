@@ -24,10 +24,12 @@ document.addEventListener('click', (e) => {
   }
   
   // Navegación principal
-  if (e.target.matches('.nav-link')) {
+  if (e.target.matches('.nav-link') || e.target.closest('.nav-link')) {
     e.preventDefault();
-    const section = e.target.dataset.section;
+    const target = e.target.matches('.nav-link') ? e.target : e.target.closest('.nav-link');
+    const section = target.dataset.section;
     console.log('Navigation clicked:', section);
+    console.log('Target element:', target);
     const main = document.getElementById('mainId');
     const navList = document.getElementById('navList');
     

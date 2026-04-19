@@ -61,6 +61,7 @@ export function renderArtDetail(artId) {
                         ` : `
                             <button class='btn' disabled style='flex: 1;'>Agotado</button>
                         `}
+                        <button class='btn btn-secondary' onclick="navigateToCart()" style='flex: 1;'>Ver Carrito</button>
                     </div>
                 </div>
             </div>
@@ -94,5 +95,20 @@ export function renderArtDetail(artId) {
                 }, 2000);
             }
         }
+    };
+    
+    window.navigateToCart = () => {
+        const main = document.getElementById('mainId');
+        main.innerHTML = '';
+        // Importar y ejecutar renderCart
+        import('./renderCart.js').then(({ renderCart }) => {
+            renderCart();
+        });
+    };
+    
+    window.showArtDetail = (artId) => {
+        const main = document.getElementById('mainId');
+        main.innerHTML = '';
+        renderArtDetail(artId);
     };
 }

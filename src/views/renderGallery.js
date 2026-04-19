@@ -10,6 +10,7 @@ export function renderGallery() {
       <div class='gallery-header'>
         <h1 class='gallery-title'>Galería de Arte</h1>
         <p class='gallery-subtitle'>Explora nuestra colección de obras únicas</p>
+        <button class='btn' onclick="window.location.href='#cart'" style='margin-top: var(--space-md);'>Ver Carrito</button>
       </div>
       
       <div class='gallery-grid'>

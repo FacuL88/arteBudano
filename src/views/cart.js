@@ -46,6 +46,10 @@ export class Cart {
         }
     }
 
+    getTotalQuantity() {
+        return this.items.reduce((total, item) => total + item.quantity, 0);
+    }
+
     getTotal() {
         return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
     }
