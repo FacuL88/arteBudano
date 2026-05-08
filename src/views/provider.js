@@ -131,7 +131,7 @@ export const array = [
         },
         {   
             id: 9,
-            name:'Pachamama dormida',
+            name:'Volviendo de montevideo',
             medidas:'75X75cm',
             tecnica:'óleo',
             año:'2021',
