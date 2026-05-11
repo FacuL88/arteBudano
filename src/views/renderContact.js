@@ -36,7 +36,7 @@ export function renderContact() {
               </div>
               <div class='contact-details'>
                 <h3>Email</h3>
-                <p>gonzalocolella@gmail.com</p>
+                <p>gonzacolella@gmail.com</p>
               </div>
             </div>
           </div>
