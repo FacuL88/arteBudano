@@ -1,6 +1,5 @@
 import { array } from "./provider";
 import { renderArtDetail } from "./renderArtDetail";
-import { cart } from "./cart";
 
 export function renderGallery() {
   const main = document.getElementById('mainId');
@@ -10,7 +9,6 @@ export function renderGallery() {
       <div class='gallery-header'>
         <h1 class='gallery-title'>Galería de Arte</h1>
         <p class='gallery-subtitle'>Explora nuestra colección de obras únicas</p>
-        <button class='btn' onclick="window.location.href='#cart'" style='margin-top: var(--space-md);'>Ver Carrito</button>
       </div>
       
       <div class='gallery-grid'>
@@ -35,16 +33,9 @@ export function renderGallery() {
                 </div>
               </div>
               
-              <div class='artwork-price'>
-                ${cart.formatPrice(item.price)}
-              </div>
               
               <div class='artwork-actions'>
                 <button class='btn' onclick="showArtDetail(${item.id})">Ver obra</button>
-                ${item.stock > 0 ? 
-                  `<button class='btn btn-secondary' onclick="addToCartFromGallery(${item.id})">Agregar al carrito</button>` :
-                  `<button class='btn' disabled>Agotado</button>`
-                }
               </div>
             </div>
           </div>
@@ -59,21 +50,4 @@ export function renderGallery() {
     renderArtDetail(artId);
   };
   
-  window.addToCartFromGallery = (productId) => {
-    const product = array.find(item => item.id === productId);
-    if (product && product.stock > 0) {
-      cart.addItem(product);
-      // Mostrar feedback visual simple
-      const btn = document.querySelector(`button[onclick="addToCartFromGallery(${productId})"]`);
-      if (btn) {
-        const originalText = btn.textContent;
-        btn.textContent = 'Agregado';
-        btn.disabled = true;
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 2000);
-      }
-    }
-  };
 }

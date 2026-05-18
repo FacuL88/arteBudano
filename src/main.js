@@ -4,8 +4,6 @@ import { renderHome } from './views/renderHome';
 import { renderGallery } from './views/renderGallery';
 import { renderBio } from './views/renderBio';
 import { renderContact } from './views/renderContact';
-import { renderCart } from './views/renderCart';
-import { cart } from './views/cart';
 
 document.querySelector('#app').innerHTML = `
   <header id='headerId' class='header'></header>
@@ -14,7 +12,6 @@ document.querySelector('#app').innerHTML = `
 
 renderHeader();
 renderHome();
-cart.updateCartUI();
 
 // Menu toggle para mobile
 document.addEventListener('click', (e) => {
@@ -47,11 +44,6 @@ document.addEventListener('click', (e) => {
         break;
       case 'contact':
         renderContact();
-        break;
-      case 'cart':
-        console.log('About to call renderCart');
-        renderCart();
-        console.log('renderCart called');
         break;
     }
 

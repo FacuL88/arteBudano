@@ -116,24 +116,29 @@
     margin-top: 1em;
 }
 
-.btn-add-cart {
-    width: 100%;
-    padding: 1.2em;
-    background: #27ae60;
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background: #25D366;
     color: white;
-    border: none;
+    text-decoration: none;
     border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);
 }
 
-.btn-add-cart:hover {
-    background: #229954;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+.whatsapp-btn img {
+    width: 24px;
+    height: 24px;
+    margin-right: var(--space-xs);
+    display: block;
 }
+
+
 
 .btn-sold {
     width: 100%;

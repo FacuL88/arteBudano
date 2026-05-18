@@ -16,14 +16,6 @@ export function renderHeader() {
                 <li><a href='#' class='nav-link' data-section='gallery'>Galería</a></li>
                 <li><a href='#' class='nav-link' data-section='bio'>Bio</a></li>
                 <li><a href='#' class='nav-link' data-section='contact'>Contacto</a></li>
-                <li>
-                    <a href='#' class='nav-link' data-section='cart'>
-                        <div class='cart-icon'>
-                            <span>Carrito</span>
-                            <span class='cart-count' id='cart-count'>0</span>
-                        </div>
-                    </a>
-                </li>
             </ul>
         </nav>
     `;
