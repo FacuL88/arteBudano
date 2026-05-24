@@ -65,6 +65,9 @@
     font-weight: 500;
     color: var(--text-dark);
     margin-bottom: var(--space-xs);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .artwork-details {
@@ -100,19 +103,126 @@
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .gallery {
+        padding: calc(var(--space-xl) + 80px) var(--space-md) var(--space-lg);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-md);
+    }
+    
+    .artwork-image {
+        height: 350px;
+    }
+}
+
 @media (max-width: 768px) {
+    .gallery {
+        padding: calc(var(--space-lg) + 80px) var(--space-sm) var(--space-lg);
+    }
+    
+    .gallery-header {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .gallery-title {
+        font-size: 2rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    .gallery-subtitle {
+        font-size: 0.9375rem;
+    }
+    
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: var(--space-md);
     }
     
+    .artwork-card {
+        border-radius: var(--radius-sm);
+    }
+    
     .artwork-image {
         height: 300px;
     }
+    
+    .artwork-info {
+        padding: var(--space-sm);
+    }
+    
+    .artwork-title {
+        font-size: 1.125rem;
+    }
+    
+    .artwork-detail {
+        font-size: 0.8125rem;
+    }
+    
+    .artwork-price {
+        font-size: 1rem;
+    }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 480px) {
+    .gallery {
+        padding: calc(var(--space-md) + 80px) var(--space-xs) var(--space-md);
+    }
+    
+    .gallery-header {
+        margin-bottom: var(--space-md);
+    }
+    
+    .gallery-title {
+        font-size: 1.75rem;
+    }
+    
+    .gallery-subtitle {
+        font-size: 0.875rem;
+        max-width: 100%;
+    }
+    
     .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+    }
+    
+    .artwork-image {
+        height: 250px;
+    }
+    
+    .artwork-info {
+        padding: var(--space-xs);
+    }
+    
+    .artwork-title {
+        font-size: 1rem;
+    }
+    
+    .artwork-details {
+        gap: 0.25rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .artwork-detail {
+        font-size: 0.75rem;
+    }
+    
+    .artwork-price {
+        font-size: 0.9375rem;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .artwork-actions {
+        gap: 0.25rem;
     }
 }

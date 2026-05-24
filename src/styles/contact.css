@@ -10,6 +10,9 @@
     font-weight: 500;
     color: var(--text-dark);
     margin-bottom: var(--space-sm);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .contact-subtitle {
@@ -160,14 +163,39 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .contact-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .contact-header {
+        margin-bottom: var(--space-lg);
+    }
+    
     .contact-header h1 {
         font-size: 2rem;
+    }
+    
+    .contact-subtitle {
+        font-size: 1rem;
+        max-width: 100%;
     }
     
     .contact-content {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
+    }
+    
+    .contact-info h2,
+    .contact-social h2 {
+        font-size: 1.25rem;
     }
     
     .contact-method {
@@ -179,14 +207,57 @@
         height: 50px;
     }
     
+    .contact-icon img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .contact-details h3 {
+        font-size: 1rem;
+    }
+    
+    .contact-details p {
+        font-size: 0.8125rem;
+    }
+    
     .social-link {
         padding: var(--space-sm);
+    }
+    
+    .social-link img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-link span {
+        font-size: 0.8125rem;
+    }
+    
+    .social-link small {
+        font-size: 0.6875rem;
     }
 }
 
 @media (max-width: 480px) {
+    .contact-header {
+        margin-bottom: var(--space-md);
+    }
+    
     .contact-header h1 {
         font-size: 1.75rem;
+    }
+    
+    .contact-subtitle {
+        font-size: 0.9375rem;
+    }
+    
+    .contact-content {
+        gap: var(--space-md);
+    }
+    
+    .contact-methods,
+    .social-links {
+        gap: var(--space-sm);
     }
     
     .contact-method,
@@ -194,5 +265,46 @@
         flex-direction: column;
         text-align: center;
         gap: var(--space-sm);
+        padding: var(--space-xs);
+    }
+    
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .contact-icon img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .contact-details h3 {
+        font-size: 0.9375rem;
+    }
+    
+    .contact-details p {
+        font-size: 0.75rem;
+    }
+    
+    .social-link img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .social-link span {
+        font-size: 0.75rem;
+    }
+    
+    .social-link small {
+        font-size: 0.625rem;
+    }
+    
+    .contact-footer {
+        padding-top: var(--space-lg);
+    }
+    
+    .contact-footer p {
+        font-size: 0.875rem;
+        max-width: 100%;
     }
 }
